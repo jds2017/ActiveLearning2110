@@ -1,17 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  edit_lecture.controller.js                              //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Jeremy Carter on 02/27/17.                   //
-//  Copyright © 2016 Jeremy Carter. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  27Feb17     J. Carter  Initial Design                   //
-//                                                          //
-//************************************************************
 
 var app = angular.module('app');
 

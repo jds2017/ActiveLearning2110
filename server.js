@@ -1,19 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  server.js                                               //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 9/13/16.                    //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  13Sep16     O. Mizrahi  Initial Design                  //
-//  08Oct16     J. Carter   Added Sass Support              //
-//  16Nov16     J. Carter   Added urlencoded to bodyparser  //
-//  12Jan17     J. Carter   Removed unused libraries        //
-//************************************************************
 "use strict";
 
 var app_api_v2 = require('./app_api_v2'),

@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  authorizeController.js                                  //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 01/01/17.                   //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  01Jan17     O. Mizrahi  Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var User = require('./../models/userModel'),

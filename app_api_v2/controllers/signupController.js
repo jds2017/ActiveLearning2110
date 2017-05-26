@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  signupController.js                                     //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 01/03/17.                   //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  03Jan17     O. Mizrahi  Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var User = require('./../models/userModel'),

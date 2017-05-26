@@ -1,19 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  app.js                                                  //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Jeremy Carter on 01/11/16.                   //
-//  Copyright © 2016 Jeremy Carter. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  11Jan16     J. Carter  Initial Design                   //
-//  14Jan16     J. Carter  Implemented local storage for    //
-//                          data persistance.               //
-//************************************************************
-
 var app = angular
     .module('app', [
         'ui.router',

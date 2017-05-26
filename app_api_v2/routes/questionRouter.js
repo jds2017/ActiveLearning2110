@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  questionRouter.js                                       //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Amy Zhuang on 2/5/17.	                    //
-//  Copyright © 2017 Amy Zhuang. All rights reserved.	    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  05Feb17     A. Zhuang   Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var express = require('express');
