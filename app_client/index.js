@@ -1,17 +1,5 @@
 /* jshint node: true */
 
-//****************************************************************
-//  app_client/index.js                                         //
-//  Active Learning 2110                                        //
-//                                                              //
-//  Created by Jeremy Carter on 10/08/16.                       //
-//  Copyright © 2016 Jeremy Carter. All rights reserved.        //
-//                                                              //
-//  Date        Name        Description                         //
-//  -------     ---------   --------------                      //
-//  08Oct16     J.Carter    Initial Design                      //
-//                                                              //
-//****************************************************************
 
 "use strict";
 

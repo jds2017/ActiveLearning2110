@@ -1,17 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  authRouter.js                                           //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 12/22/16.                   //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  22Dec16     O. Mizrahi  Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var express = require('express');

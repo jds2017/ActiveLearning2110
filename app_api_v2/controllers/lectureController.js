@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  lectureController.js                                    //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 03/04/2017.                 //
-//  Copyright © 2017 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  03/02/05    O. Miz      Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var Course = require('./../models/courseModel'),

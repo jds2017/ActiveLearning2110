@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  questionController.js                                   //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Amy Zhuang on 02/05/17.                      //
-//  Copyright © 2017 Amy Zhuang. All rights reserved.       //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  02Feb5      A. Zhuang   Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var User = require('./../models/userModel'),
