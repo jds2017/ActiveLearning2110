@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  questionSetModel.js                                     //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 03/03/17.                   //
-//  Copyright © 2017 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  03Mar17     O. Mizrahi  Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var mongoose = require('mongoose');

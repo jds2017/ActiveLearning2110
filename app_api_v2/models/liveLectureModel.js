@@ -1,17 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  liveLectureModel.js                                     //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 04/10/2017.                 //
-//  Copyright © 2017 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  04/10/17    O. Miz      Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var mongoose = require('mongoose');

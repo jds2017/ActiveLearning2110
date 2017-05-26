@@ -1,18 +1,6 @@
 /* jshint node: true */
 /* jshint esversion: 6 */
 
-//************************************************************
-//  socketEvents.js                                         //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Odell Mizrahi on 9/18/16.                    //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  01Apr17     O. Mizrahi  Initial Design                  //
-//                                                          //
-//************************************************************
 "use strict";
 
 var config = require('./../config'),

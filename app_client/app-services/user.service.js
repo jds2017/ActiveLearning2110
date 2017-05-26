@@ -1,19 +1,5 @@
 /* jshint node: true */
 
-//************************************************************
-//  user.service.js                                         //
-//  Active Learning 2110                                    //
-//                                                          //
-//  Created by Jeremy Carter on 01/12/17.                   //
-//  Copyright © 2016 Odell Mizrahi. All rights reserved.    //
-//                                                          //
-//  Date        Name        Description                     //
-//  -------     ---------   --------------                  //
-//  12Jan17     J. Carter  Initial Design                   //
-//  15Jan17     J. Carter  Moved in ShowLogin & created     //
-//                          ShowACCourse                    //
-//************************************************************
-var app = angular.module('app');
 
 app.factory('UserService', function($state, $localStorage, $ocLazyLoad, ModalService) {
 
