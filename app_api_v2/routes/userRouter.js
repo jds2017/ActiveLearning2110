@@ -25,6 +25,8 @@ var inputController = require('./../controllers/inputController');
 var questionController = require('./../controllers/questionController');
 var lectureController = require('./../controllers/lectureController');
 
+userRouter.all('*', loginController.isLoggedIn)
+
 
 /**
 GET ALL USERS
