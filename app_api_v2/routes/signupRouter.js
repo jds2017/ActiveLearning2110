@@ -20,7 +20,6 @@ var signupRouter = express.Router();
 
 var signupController = require('./../controllers/signupController');
 var inputController = require('./../controllers/inputController');
-var tokenController = require('./../controllers/tokenController');
 var userController = require('./../controllers/userController');
 var courseController = require('./../controllers/courseController');
 var authorizeController = require('./../controllers/authorizeController');
@@ -69,9 +68,7 @@ Query String:     none
 Request Body:     none
 **/
 signupRouter.route('/admin_key')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .post(authorizeController.admin,
         signupController.createAdminKey,
         signupController.getRegistrationKeys);
 
@@ -88,9 +85,7 @@ Query String:     none
 Request Body:     none
 **/
 signupRouter.route('/instructor_key')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .post(authorizeController.admin,
         signupController.createInstructorKey);
 
 /**
@@ -106,9 +101,7 @@ Query String:     none
 Request Body:     none
 **/
 signupRouter.route('/registration_key')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .get(authorizeController.admin,
         signupController.getRegistrationKeys);
 
 module.exports = signupRouter;

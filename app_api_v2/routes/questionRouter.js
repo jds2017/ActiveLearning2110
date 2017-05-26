@@ -21,7 +21,6 @@ var questionRouter = express.Router();
 var questionController = require('./../controllers/questionController');
 var authorizeController = require('./../controllers/authorizeController');
 var inputController = require('./../controllers/inputController');
-var tokenController = require('./../controllers/tokenController');
 
 /**
 Add Question
@@ -43,9 +42,7 @@ Request Body: application/json
 }
 **/
 questionRouter.route('/')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .post(authorizeController.instructor,
         inputController.requireTags,
         inputController.requireQuestionBody,
         inputController.requireAnswerChoices,
@@ -67,9 +64,7 @@ Example:          /question?tag=cs%202110&tag=chapter%205&tag=c%20language searc
 Request Body:     none
 **/
 questionRouter.route('/')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .get(authorizeController.instructor,
         questionController.getAllQuestions);
 
 /**
@@ -85,9 +80,7 @@ Query String:     none
 Request Body: 	  none
 **/
 questionRouter.route('/:QUESTIONID')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        questionController.getQuestion);
+    .get(questionController.getQuestion);
 
 /**
 Copy Question From Existing
@@ -103,9 +96,7 @@ Query String:     none
 Request Body:     none
 **/
 questionRouter.route('/:QUESTIONID/copy')
-    .put(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .put(authorizeController.instructor,
         questionController.copyQuestion);
 
 /**
@@ -121,9 +112,7 @@ Query String:     none
 Request Body: 	  none
 **/
 questionRouter.route('/:QUESTIONID')
-    .delete(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .delete(authorizeController.instructor,
         questionController.deleteQuestion);
 
 /**
@@ -146,9 +135,7 @@ Request Body: 	  application/.json 		required
 }
 **/
 questionRouter.route('/:QUESTIONID')
-	 .post(tokenController.validateToken,
-        tokenController.refreshToken,
-		    authorizeController.instructor,
+	 .post(authorizeController.instructor,
 		    questionController.editQuestion);
 
 

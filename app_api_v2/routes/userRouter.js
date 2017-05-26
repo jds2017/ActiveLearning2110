@@ -20,7 +20,6 @@ var userRouter = express.Router();
 
 var userController = require('./../controllers/userController');
 var courseController = require('./../controllers/courseController');
-var tokenController = require('./../controllers/tokenController');
 var authorizeController = require('./../controllers/authorizeController');
 var inputController = require('./../controllers/inputController');
 var questionController = require('./../controllers/questionController');
@@ -40,9 +39,7 @@ Query String:     none
 Request Body:     none
 **/
 userRouter.route('/')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .get(authorizeController.admin,
         userController.getAll);
 
 /**
@@ -58,9 +55,7 @@ Query String:     none
 Request Body:     none
 **/
 userRouter.route('/:USERID')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.adminOrSelf,
+    .get(authorizeController.adminOrSelf,
         userController.getUser);
 
 /**
@@ -82,9 +77,7 @@ Request Body:     application/json  required
 }
 **/
 userRouter.route('/:USERID')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.adminOrSelf,
+    .post(authorizeController.adminOrSelf,
         authorizeController.roleUpdate,
         userController.updateUser);
 
@@ -101,9 +94,7 @@ Query String:     none
 Request Body:     none
 **/
 userRouter.route('/:USERID/courses')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.studentOrInstructor,
+    .get(authorizeController.studentOrInstructor,
         courseController.getUserCourses);
 
 
@@ -123,9 +114,7 @@ Request Body:     application/json  required
 }
 **/
 userRouter.route('/:USERID/role')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .post(authorizeController.admin,
         inputController.requireRole,
         userController.updateRole);
 
@@ -147,9 +136,7 @@ Request Body:     application/json  required
 }
 **/
 userRouter.route('/:USERID/password')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.self,
+    .post(authorizeController.self,
         inputController.requireCurrentPassword,
         inputController.requireNewPassword,
         userController.updatePassword);
@@ -168,9 +155,7 @@ Query String:     none
 Request Body:     none
 **/
 userRouter.route('/:USERID/deactivate')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.admin,
+    .post(authorizeController.admin,
         userController.deactivateUser);
 
 /**
@@ -188,9 +173,7 @@ Query String:     none
 Request Body: 	  none
 **/
 userRouter.route('/:USERID/questions')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        questionController.getAllInstructorQuestions);
+    .get(questionController.getAllInstructorQuestions);
 
 /**
 Get All Instructor Question Sets
@@ -205,9 +188,7 @@ Query String:     none
 Request Body: 	  none
 **/
 userRouter.route('/:USERID/questionsets')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.getAllQuestionSets);
+    .get(lectureController.getAllQuestionSets);
 
 
 module.exports = userRouter;

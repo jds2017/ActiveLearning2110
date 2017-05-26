@@ -19,7 +19,6 @@ var courseRouter = express.Router();
 
 var authorizeController = require('./../controllers/authorizeController');
 var inputController = require('./../controllers/inputController');
-var tokenController = require('./../controllers/tokenController');
 var userController = require('./../controllers/userController');
 var courseController = require('./../controllers/courseController');
 var lectureController = require('./../controllers/lectureController');
@@ -52,9 +51,7 @@ Request Body:     application/json     required
 }
 **/
 courseRouter.route('/')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .post(authorizeController.instructor,
         inputController.requireCourseTitle,
         inputController.requireCourseSchedule,
         inputController.requireSections,
@@ -76,9 +73,7 @@ Request Body:     application/json    required
 }
 **/
 courseRouter.route('/students')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.student,
+    .post(authorizeController.student,
         courseController.joinCourse,
         courseController.getUserCourses);
 
@@ -100,9 +95,7 @@ Request Body:     application/json    required
 }
 **/
 courseRouter.route('/:COURSEID/sections/:SECTIONID/students')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .post(authorizeController.instructor,
         inputController.requireFirstname,
         inputController.requireLastname,
         inputController.requireUsername,
@@ -121,9 +114,7 @@ Query String:     none
 Request Body:     none
 **/
 courseRouter.route('/:COURSEID/sections/:SECTIONID/students/:USERID')
-    .delete(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.adminOrInstructorOrSelf,
+    .delete(authorizeController.adminOrInstructorOrSelf,
         courseController.deleteStudentFromCourse);
 
 /**
@@ -139,9 +130,7 @@ Query String:     none
 Request Body:     none
 **/
 courseRouter.route('/:COURSEID')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        courseController.getCourse);
+    .get(courseController.getCourse);
 
 /**
 Add course lecture
@@ -164,9 +153,7 @@ Request Body:     application/json    required
 }
 **/
 courseRouter.route('/:COURSEID/lectures')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .post(authorizeController.instructor,
         lectureController.savedLectureToDB);
 
 /**
@@ -182,9 +169,7 @@ Query String:     none
 Request Body:     none
 **/
 courseRouter.route('/:COURSEID/lectures')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        authorizeController.instructor,
+    .post(authorizeController.instructor,
         lectureController.getCourseLectures);
 
 module.exports = courseRouter;

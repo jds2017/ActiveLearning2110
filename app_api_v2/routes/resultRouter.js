@@ -19,7 +19,6 @@ var express = require('express');
 var resultRouter = express.Router();
 
 var lectureController = require('./../controllers/lectureController');
-var tokenController = require('./../controllers/tokenController');
 
 /**
 Get Instructor Results
