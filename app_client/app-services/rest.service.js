@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 
-app.factory('RESTService', function($http, $localStorage, $state, $q, Restangular, UserStorage, UserService, SocketService, jwtHelper, ngNotify) {
+app.factory('RESTService', function($http, $localStorage, $state, $q, Restangular, UserStorage, UserService, SocketService, ngNotify) {
 
     var service = {};
 
@@ -17,17 +17,7 @@ app.factory('RESTService', function($http, $localStorage, $state, $q, Restangula
     });
 
     service.LoggedIn = function() {
-        if ($localStorage.jwt_token && !jwtHelper.isTokenExpired($localStorage.jwt_token) && $localStorage.LoggedIn) {
-            $localStorage.LoggedIn = true;
-            Restangular.setDefaultHeaders({
-                token: $localStorage.jwt_token
-            });
-            SocketService.connectToServer();
-            return true;
-        } else {
-            $localStorage.LoggedIn = false;
-            return false;
-        }
+        // check my session. Return if it contains entry
     };
 
     service.Register = function(info, callback) {
@@ -50,13 +40,9 @@ app.factory('RESTService', function($http, $localStorage, $state, $q, Restangula
     service.Login = function(info, callback) {
         baseREST.one("authenticate").post("", info).then(
             function(response) {
-                Restangular.setDefaultHeaders({
-                    token: response.jwt_token
-                });
                 var data = {
                     username: info.username,
                     _id: response.user_id,
-                    jwt_token: response.jwt_token,
                     LoggedIn: true
                 };
                 var retInfo = genRetInfo(response);
@@ -486,12 +472,6 @@ app.factory('RESTService', function($http, $localStorage, $state, $q, Restangula
                 success: response.data.success
             };
         }
-        Restangular.setDefaultHeaders({
-            token: response.jwt_token
-        });
-        UserStorage.UpdateUserInfo({
-            jwt_token: response.jwt_token
-        });
     }
 
     return service;

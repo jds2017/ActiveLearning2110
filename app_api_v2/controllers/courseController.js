@@ -133,7 +133,6 @@ var instructorAddStudent = function(req, res, next) {
         .then(function(result) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Student Added to Course',
                 student_username: newStudent.username
             });
@@ -287,7 +286,6 @@ var deleteStudentFromCourse = function(req, res) {
         .then(function(courses) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Student Deleted',
                 course: courses[0]
             });
@@ -321,7 +319,6 @@ var getCourse = function(req, res) {
     //     .then(function(courses) {
     //         return res.status(200).json({
     //             success: true,
-    //             jwt_token: req.token,
     //             message: 'Request Success',
     //             course: courses[0]
     //         });
@@ -354,7 +351,6 @@ var getCourse = function(req, res) {
                 courses[0].average = courses[0].results.studentCourseAvg(req.decodedToken.sub);
                 return res.status(201).json({
                     success: true,
-                    jwt_token: req.token,
                     message: 'Request Success',
                     courses: courses
                 });
@@ -384,7 +380,6 @@ var getCourse = function(req, res) {
             });
             return res.status(201).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Request Success',
                 courses: courses
             });
@@ -425,7 +420,6 @@ var getUserCourses = function(req, res) {
                 });
                 return res.status(201).json({
                     success: true,
-                    jwt_token: req.token,
                     message: 'Request Success',
                     courses: courses
                 });
@@ -455,7 +449,6 @@ var getUserCourses = function(req, res) {
             });
             return res.status(201).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Request Success',
                 courses: courses
             });
@@ -518,7 +511,6 @@ var savedCourseToDB = function(req, res) {
             console.log(courses);
             return res.status(201).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Course Creation Successsful',
                 courses: courses
             });

@@ -54,7 +54,6 @@ var addQuestionSet = function(req, res) {
             var updatedLecture = lecture.toObject();
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Set Added To Lecture',
                 lecture: updatedLecture
             });
@@ -105,7 +104,6 @@ var addQuestionToLecture = function(req, res) {
             var updatedLecture = lecture.toObject();
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Added to Lecture',
                 lecture: updatedLecture
             });
@@ -127,7 +125,6 @@ var getLecture = function(req, res) {
     .then(function(lecture) {
         return res.status(200).json({
             success: true,
-            jwt_token: req.token,
             message: 'Request Success',
             lecture: lecture
         });
@@ -159,7 +156,6 @@ var getCourseLectures = function(req, res) {
     .then(function(courses) {
         return res.status(201).json({
             success: true,
-            jwt_token: req.token,
             message: 'Request Success',
             lectures: courses[0].lectures
         });
@@ -182,7 +178,6 @@ var getAllQuestionSets = function(req, res) {
         .then(function(questionsets) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 questionsets: questionsets,
                 message: "Success on getAllQuestionSets"
             });
@@ -206,7 +201,6 @@ var getStudentResults = function(req, res) {
     .then(function(results) {
         return res.status(200).json({
             success: true,
-            jwt_token: req.token,
             results: results,
             message: "Success on getStudentResults"
         });
@@ -233,7 +227,6 @@ var getInstructorResults = function(req, res) {
       });
         return res.status(200).json({
             success: true,
-            jwt_token: req.token,
             results: results,
             message: "Success on getInstructorResults"
         });
@@ -264,7 +257,6 @@ var removeQuestion = function(req, res) {
             var updatedLecture = lecture.toObject();
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Removed',
                 lecture: updatedLecture
             });
@@ -309,7 +301,6 @@ var reorderQuestion = function(req, res) {
             var updatedLecture = lecture.toObject();
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Reorder Complete',
                 lecture: updatedLecture
             });
@@ -355,7 +346,6 @@ var savedLectureToDB = function(req, res) {
     .then(function(courses) {
         return res.status(201).json({
             success: true,
-            jwt_token: req.token,
             message: 'Lecture Creation Successsful',
             lectures: courses[0].lectures
         });
@@ -396,7 +386,6 @@ var saveQuestionSet = function(req, res) {
         .then(function(questionSets) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Set Saved',
                 questionSets: questionSets
             });

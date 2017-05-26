@@ -69,7 +69,6 @@ var createInstructorKey = function(req, res, next) {
         .then(function(keys) {
             return res.status(201).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Admin Key Creation Successsful',
                 key: saved_key,
                 keys: keys
@@ -94,7 +93,6 @@ var getRegistrationKeys = function(req, res) {
         .then(function(keys) {
             return res.status(201).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Request Sucess',
                 keys: keys
             });

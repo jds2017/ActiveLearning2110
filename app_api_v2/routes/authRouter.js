@@ -8,7 +8,6 @@ var authRouter = express.Router();
 var authenticateController = require('./../controllers/authenticateController');
 var inputController = require('./../controllers/inputController');
 var courseController = require('./../controllers/courseController');
-var tokenController = require('./../controllers/tokenController');
 
 /**
 AUTHENTICATE USER
@@ -30,8 +29,8 @@ authRouter.route('/')
     .post(inputController.requireUsername,
         inputController.requirePassword,
         authenticateController.authenticate,
-        courseController.updateStudentStatus,
-        tokenController.generateToken);
+        courseController.updateStudentStatus;
+        //need to put something in session instead
 
 /**
 LOG OUT USER
@@ -46,7 +45,7 @@ Query String:    none
 Request Body:    none
 **/
 authRouter.route('/')
-    .delete(tokenController.validateToken,
-        tokenController.clearToken);
+    .delete();
+    //need to remove that something in session instead
 
 module.exports = authRouter;

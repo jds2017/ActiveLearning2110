@@ -42,7 +42,6 @@ var editQuestion = function(req, res) {
         .then(function(question) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Updated',
                 question: question
             });
@@ -85,7 +84,6 @@ var copyQuestion = function(req, res) {
         .then(function(question) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Copied',
                 question: question
             });
@@ -118,7 +116,6 @@ var deleteQuestion = function(req, res) {
         .then(function(data) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Deleted'
             });
         })
@@ -149,7 +146,6 @@ var getAllQuestions = function(req, res) {
             .then(function(questions) {
                 return res.status(200).json({
                     success: true,
-                    jwt_token: req.token,
                     questions: questions,
                     message: "Success on getAllQuestions"
                 });
@@ -173,7 +169,6 @@ var getAllQuestions = function(req, res) {
             .then(function(questions) {
                 return res.status(200).json({
                     success: true,
-                    jwt_token: req.token,
                     questions: questions,
                     message: "Success on getAllQuestions"
                 });
@@ -213,7 +208,6 @@ var getAllInstructorQuestions = function(req, res) {
                 .then(function(questions) {
                     return res.status(200).json({
                         success: true,
-                        jwt_token: req.token,
                         questions: questions,
                         message: "Success on getAllInstructorQuestions"
                     });
@@ -238,7 +232,6 @@ var getAllInstructorQuestions = function(req, res) {
                 .then(function(questions) {
                     return res.status(200).json({
                         success: true,
-                        jwt_token: req.token,
                         questions: questions,
                         message: "Success on getAllInstructorQuestions"
                     });
@@ -258,7 +251,6 @@ var getAllInstructorQuestions = function(req, res) {
         .then(function(questions) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 questions: questions,
                 message: "Success on getAllInstructorQuestions"
             });
@@ -284,7 +276,6 @@ var getQuestion = function(req, res) {
         .then(function(question) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Request Success',
                 question: question
             });
@@ -319,7 +310,6 @@ var savedQuestionToDB = function(req, res) {
         .then(function(question) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Question Created',
                 question: question
             });
@@ -402,7 +392,6 @@ var deleteTag = function(req, res) {
                         } else {
                             return res.status(200).json({
                                 success: true,
-                                jwt_token: req.token,
                                 message: "Tag Deleted",
                                 data: data
                             });
@@ -426,7 +415,6 @@ var editProblemStatement = function(req, res) {
         .then(function(user) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'User Role Updated',
                 user: user
             });
@@ -543,7 +531,7 @@ var deleteAnswerChoice = function(req, res) {
                         } else {
                             return res.status(200).json({
                                 success: true,
-                                jwt_token: req.token,
+
                                 message: "Answer Choice Deleted",
                                 data: data
                             });

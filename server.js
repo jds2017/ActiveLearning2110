@@ -14,7 +14,9 @@ var app_api_v2 = require('./app_api_v2'),
     winston = require('winston'),
     app = express(),
     server = require('http').createServer(app),
-    io = require('socket.io')(server);
+    io = require('socket.io')(server),
+    session = require('client-sessions');
+
 
 require('./app_socket/lectures')(io, winston);
 
@@ -43,6 +45,13 @@ app.use(cookieParser());
 
 app.use(bodyparser.json({
     limit: '50mb'
+}));
+
+app.use(session({
+  cookieName: 'session',
+  secret: 'todo-makeasecret',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
 }));
 
 app_client(app);

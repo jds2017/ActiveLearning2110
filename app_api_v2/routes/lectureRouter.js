@@ -7,7 +7,6 @@ var express = require('express');
 var lectureRouter = express.Router();
 
 var lectureController = require('./../controllers/lectureController');
-var tokenController = require('./../controllers/tokenController');
 
 /**
 Get Lecture Details
@@ -22,9 +21,7 @@ Query String:     none
 Request Body: 	  none
 **/
 lectureRouter.route('/:LECTUREID')
-    .get(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.getLecture);
+    .get(lectureController.getLecture);
 
 /**
 Add Question
@@ -44,9 +41,7 @@ Query String:     none
 Request Body: 	  none
 **/
 lectureRouter.route('/:LECTUREID/questions/:QUESTIONID')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.addQuestionToLecture);
+    .post(lectureController.addQuestionToLecture);
 
 /**
 Reorder Lecture Question
@@ -64,9 +59,7 @@ Request Body: application/json
 }
 **/
 lectureRouter.route('/:LECTUREID/questions/:QUESTIONID/reorder')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.reorderQuestion);
+    .post(lectureController.reorderQuestion);
 
 
 /**
@@ -82,9 +75,7 @@ Query String:     none
 Request Body: 	  none
 **/
 lectureRouter.route('/:LECTUREID/questions/:QUESTIONID')
-    .delete(tokenController.validateToken,
-          tokenController.refreshToken,
-          lectureController.removeQuestion);
+    .delete(lectureController.removeQuestion);
 
 /**
 Save Question Set
@@ -102,9 +93,7 @@ Request Body: application/json
 }
 **/
 lectureRouter.route('/:LECTUREID/questionset')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.saveQuestionSet);
+    .post(lectureController.saveQuestionSet);
 
 /**
 Add Question Set to Lecture
@@ -119,8 +108,6 @@ Query String:     none
 Request Body: 	  none
 **/
 lectureRouter.route('/:LECTUREID/questionset/:QUESTIONSETID')
-    .post(tokenController.validateToken,
-        tokenController.refreshToken,
-        lectureController.addQuestionSet);
+    .post(lectureController.addQuestionSet);
 
 module.exports = lectureRouter;
