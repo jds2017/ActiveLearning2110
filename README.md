@@ -71,7 +71,6 @@ Since Active Learning is a Node application all dependencies will be installed a
 - **express**
 - **mongoose**
 - **socket.io**
-- **socketio-jwt**
 - **winston**
 - **jsonwebtoken**
 - **bcryptjs**

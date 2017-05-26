@@ -19,7 +19,6 @@ var app = angular
         'ui.router',
         'ngStorage',
         'angularModalService',
-        'angular-jwt',
         'oc.lazyLoad',
         'moment-picker',
         'ngTagsInput',

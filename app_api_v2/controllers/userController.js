@@ -37,7 +37,6 @@ var updateRole = function(req, res, next) {
         .then(function(user) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'User Role Updated',
                 user: user
             });
@@ -62,7 +61,6 @@ var deactivateUser = function(req, res, next) {
         .then(function(user) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'User Deactivation Updated',
                 user: user
             });
@@ -83,7 +81,6 @@ var getAll = function(req, res) {
         .then(function(users) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 user: users,
                 message: "Success on getAll"
             });
@@ -106,7 +103,6 @@ var getUser = function(req, res) {
             user.__v = undefined;
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'Request Success',
                 user: user
             });
@@ -191,7 +187,6 @@ var updateUser = function(req, res) {
         .then(function(user) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'User Updated',
                 user: user
             });
@@ -220,7 +215,6 @@ var updatePassword = function(req, res) {
         .then(function(user) {
             return res.status(200).json({
                 success: true,
-                jwt_token: req.token,
                 message: 'User Password Updated',
                 user_id: user._id.toString()
             });

@@ -27,7 +27,6 @@ app.factory('UserStorage', function($localStorage, $rootScope) {
         courses: [],
         classExpand: false,
         LoggedIn: false,
-        jwt_token: null,
         users: [],
         keys: [],
         notifications: {
