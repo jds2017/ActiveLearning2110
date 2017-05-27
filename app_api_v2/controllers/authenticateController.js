@@ -7,12 +7,6 @@ var User = require('./../models/userModel'),
     winston = require('winston'),
     bcrypt = require('bcryptjs');
 
-var roles = {
-    ADMIN: 'admin',
-    INSTRUCTOR: 'instructor',
-    STUDENT: 'student',
-};
-
 var authenticate = function(req, res, next) {
     winston.info('authenticateController: Authenticate user: %s', req.body.username);
 
