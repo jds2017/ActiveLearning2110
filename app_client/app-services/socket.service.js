@@ -1,5 +1,6 @@
 /* jshint node: true */
 
+var app = angular.module('app');
 
 app.factory('SocketService', function($rootScope, UserStorage) {
 

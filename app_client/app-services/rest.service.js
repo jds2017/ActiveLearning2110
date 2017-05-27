@@ -1,5 +1,6 @@
 /* jshint node: true */
 
+var app = angular.module('app');
 
 app.factory('RESTService', function($http, $localStorage, $state, $q, Restangular, UserStorage, UserService, SocketService, jwtHelper, ngNotify) {
 
