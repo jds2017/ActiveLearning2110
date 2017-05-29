@@ -486,7 +486,8 @@ var savedCourseToDB = function(req, res) {
                 title: req.body.title,
                 instructor: course_instructor,
                 schedule: req.body.course_schedule,
-                course_key: rand.generate()
+                course_key: rand.generate(),
+                ta_key: rand.generate()
             });
             return newCourse.save();
         })

@@ -120,6 +120,11 @@ var CourseSchema = new Schema({
         type: String,
         required: true,
         unique: true
+    },
+    ta_key: {
+        type: String,
+        required: true,
+        unique: true
     }
 });
 

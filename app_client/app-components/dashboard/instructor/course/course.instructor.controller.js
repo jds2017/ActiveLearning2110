@@ -14,7 +14,11 @@ app.controller('Instructor.Course.Controller', function($scope, $state, $localSt
         colors: ['#2F81FF', '#D1D1D1']
     };
 
-    $scope.copySuccess = function(name) {
+    $scope.copyTAKeySuccess = function(name) {
+        ngNotify.set(name + "'s TA key copied to clipboard", "success")
+    }
+
+    $scope.copySectionKeySuccess = function(name) {
         ngNotify.set("Section " + name.toUpperCase() + "'s key copied to clipboard", 'success');
     };
 
