@@ -303,35 +303,6 @@ var deleteStudentFromCourse = function(req, res) {
 var getCourse = function(req, res) {
     winston.info('courseController: get course info');
 
-    // Course.findById(req.params.COURSEID)
-    //     .exec()
-    //     .then(function(course) {
-    //         return Course.aggregate([
-    //             {$match: {_id: course._id}},
-    //             {$lookup: {from: "sections", localField: "_id", foreignField: "course_oid", as: "sections"}},
-    //             {$lookup: {from: "lectures", localField: "_id", foreignField: "course_oid", as: "lectures"}},
-    //             { $project:
-    //               { "title": 1, "course_key": 1, "createdAt": 1, "schedule": 1, "students": 1, "instructor": 1,
-    //                 "lectures.title": 1, "lectures.course_id": 1, "lectures.schedule": 1, "lectures.post_lecture": 1, "lectures.live": 1,
-    //                 "sections": 1
-    //               }
-    //             }
-    //     ]);
-    //     })
-    //     .then(function(courses) {
-    //         return res.status(200).json({
-    //             success: true,
-    //             jwt_token: req.token,
-    //             message: 'Request Success',
-    //             course: courses[0]
-    //         });
-    //     })
-    //     .catch(function(err) {
-    //         return res.status(404).json({
-    //             success: false,
-    //             message: 'Course Not Found'
-    //         });
-    //     });
     if (req.decodedToken.role === roles.STUDENT) {
 
         User.findById(req.decodedToken.sub).exec().then(function(user){
