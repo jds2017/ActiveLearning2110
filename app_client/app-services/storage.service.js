@@ -1,5 +1,6 @@
 /* jshint node: true */
 
+var app = angular.module('app');
 
 app.factory('UserStorage', function($localStorage, $rootScope) {
 

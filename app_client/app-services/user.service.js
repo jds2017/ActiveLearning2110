@@ -1,5 +1,6 @@
 /* jshint node: true */
 
+var app = angular.module('app');
 
 app.factory('UserService', function($state, $localStorage, $ocLazyLoad, ModalService) {
 
