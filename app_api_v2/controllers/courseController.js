@@ -181,7 +181,36 @@ var updateStudentStatus = function(req, res, next) {
 };
 
 var joinCourse = function(req, res, next) {
-    winston.info('courseController: join course');
+    Course.count({ 'ta_key': req.body.section_key })
+        .exec()
+        .then(function(count) {
+            winston.info("count is: " + count);
+            if(count == 1) {
+                joinCourseAsTA(req, res, next);
+            } else {
+                joinCourseAsStudent(req, res, next);
+            }
+        });
+}
+
+var joinCourseAsTA = function(req, res, next) {
+    winston.info('courseController: join course as ta');
+
+    Course.findOne({ 'ta_key': req.body.section_key })
+        .exec()
+        .then(function(course) {
+            User.findById(req.decodedToken.sub)
+                .exec()
+                .then(function(user) {
+                    return Course.update({ 'ta_key': TAKey}, { $addToSet: {tas: user.username }})
+                });
+        }).then(function(result) {
+            next();
+        });
+}
+
+var joinCourseAsStudent = function(req, res, next) {
+    winston.info('courseController: join course as student');
 
     var sectionKey = req.body.section_key;
     var courseKey = sectionKey.slice(0, sectionKey.indexOf('-'));
@@ -445,7 +474,7 @@ var getUserCourses = function(req, res) {
                 {$lookup: {from: "results", localField: "_id", foreignField: "course_oid", as: "results"}},
                 { $project:
                   {
-                    "_id": 1, "title": 1, "course_key": 1, "createdAt": 1, "schedule": 1, "students": 1, "instructor": 1, "sections": 1, "lectures": 1, "results.correct": 1
+                    "_id": 1, "title": 1, "course_key": 1, "ta_key": 1, "createdAt": 1, "schedule": 1, "students": 1, "instructor": 1, "sections": 1, "lectures": 1, "results.correct": 1
                   }
                 }
         ])

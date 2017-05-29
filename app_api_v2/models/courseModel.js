@@ -96,6 +96,7 @@ var CourseSchema = new Schema({
         }
     },
     students: [String],
+    tas: [String],
     schedule: {
         days: {
             type: [{
